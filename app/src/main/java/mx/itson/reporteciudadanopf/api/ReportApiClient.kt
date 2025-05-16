@@ -81,7 +81,7 @@ class ReportApiClient(private val context: Context) {
      */
     suspend fun sendReport(report: Report): Result<Unit> {
         return try {
-            val response = reportApi.sendReport(report)
+            val response = reportApi.createReport(AUTH_TOKEN, report)
             if (response.isSuccessful) {
                 Result.success(Unit)
             } else {
